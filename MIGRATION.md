@@ -36,7 +36,7 @@ Secrets, environment rules, OIDC trust and repository variables are not transfer
 
 ## Publishing
 
-Pages uses root `.github/workflows/pages.yml`, not a branch-root Pages build. The website staging script includes only the home page, shared assets, course HTML/Markdown, and `toolkit/`/`templates/` files. Sample code and infrastructure, course `.github/` copies, source inventories and root maintenance scripts are not published as website paths. Links to those sources go to GitHub.
+Pages uses root `.github/workflows/pages.yml`, not a branch-root Pages build. The website staging script includes only the home page, shared assets, course HTML/Markdown, and reading/download files in `toolkit/`/`templates/`. Sample code and infrastructure, instructional C# and YAML workflow examples, course `.github/` copies, source inventories and root maintenance scripts are not published as website paths. Reader links to those sources go to GitHub, where the complete originals remain available.
 
 GitHub Pages does not serve dotfiles. The toolkit's original `.editorconfig` stays unchanged in Git; website staging also exposes it as `toolkit/editorconfig.txt` for download.
 
@@ -44,7 +44,7 @@ GitHub Pages does not serve dotfiles. The toolkit's original `.editorconfig` sta
 
 - [CI](https://github.com/vygantas-meskauskis/learning-library/actions/runs/41596934218) passed: 23 tests (15 unit, 8 SQL integration), all four container builds, Bicep lint/build/build-params, and a non-empty test-results artifact.
 - [CodeQL](https://github.com/vygantas-meskauskis/learning-library/actions/runs/41596934215) completed successfully with zero results and no analysis errors.
-- [Pages](https://github.com/vygantas-meskauskis/learning-library/actions/runs/41597362507) deployed successfully. All 108 served website files matched staged content (normalizing checkout line endings). Source application code, course workflow copies and maintenance scripts returned 404 as intended.
+- [Pages](https://github.com/vygantas-meskauskis/learning-library/actions/runs/41597362507) deployed successfully. The final artifact serves 104 website files (excluding `.nojekyll`), checked against staged content while normalizing checkout line endings. Source application code, instructional C#/workflow copies and maintenance scripts are excluded; their reader links use GitHub.
 - Local validators passed 1,126 source and 1,120 staged internal-link/asset/anchor checks. All four live readers passed keyboard skip/back navigation and anchor checks at 1440px and 320px widths, with no page overflow or JavaScript errors.
 - All 87 Mermaid diagrams (49 .NET, 38 designer) rendered without syntax errors. Original HTML anchor IDs and Mermaid definitions are preserved. Every sample application file is byte-identical to its original Git blob.
 - Dependabot successfully scanned both nested NuGet and root Actions configurations. Azure deploy was skipped because `AZURE_CLIENT_ID` is unset; no Azure operations were performed.

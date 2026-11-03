@@ -28,6 +28,9 @@ def build():
                 continue
             if any(part.startswith(".") for part in relative.parts):
                 continue
+            # Readers link instructional code/workflows to GitHub, not website downloads.
+            if source.suffix in {".cs", ".yml", ".yaml"}:
+                continue
             public = (
                 len(relative.parts) == 1 and source.suffix in {".html", ".md"}
                 or relative.parts[0] in {"chapters", "modules"} and source.suffix == ".md"
