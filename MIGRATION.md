@@ -8,7 +8,7 @@
 | vygantas-meskauskis/becoming-ai-native-designer | `0def7462f43960d08e662c4d1f459ed122141178` | 29 | `courses/becoming-ai-native-designer/` |
 | vygantas-meskauskis/ai-native-design-lead-course | `bbacc6ce5c03528ac0a26b4b314839a86eb8d5ad` | 36 | `courses/ai-native-design-lead-course/` |
 
-`migration-sources.json` is the authoritative per-file inventory. All tracked files were imported; no tracked authoring notes, build outputs, or license files were present. Nested `.git` directories were not imported. The sources had no open issues or pull requests at inventory time.
+`migration-sources.json` is the authoritative per-file inventory. It records SHA-256 hashes of both the original and imported **Git blobs**, independent of Windows checkout line endings. All tracked files were imported; no tracked authoring notes, build outputs, or license files were present. Nested `.git` directories were not imported. The sources had no open issues or pull requests at inventory time.
 
 Deliberate edits: repository/Pages URLs and clone commands, monorepo workflow paths and corresponding lesson snippets, library navigation and accessibility styles, and broken internal links discovered during validation. No curriculum or sample application rewrite is intended. Original anchor IDs remain unchanged.
 
@@ -40,4 +40,21 @@ Pages uses root `.github/workflows/pages.yml`, not a branch-root Pages build. Th
 
 GitHub Pages does not serve dotfiles. The toolkit's original `.editorconfig` stays unchanged in Git; website staging also exposes it as `toolkit/editorconfig.txt` for download.
 
-The original repositories receive canonical-location README/description notices and are archived only after this library's Pages deployment, live-reader checks, CI and CodeQL succeed. Archival retains commits and does not close unrelated work. No redirects or old-site banners are required.
+## Verified completion (2026-11-03)
+
+- [CI](https://github.com/vygantas-meskauskis/learning-library/actions/runs/41596934218) passed: 23 tests (15 unit, 8 SQL integration), all four container builds, Bicep lint/build/build-params, and a non-empty test-results artifact.
+- [CodeQL](https://github.com/vygantas-meskauskis/learning-library/actions/runs/41596934215) completed successfully with zero results and no analysis errors.
+- [Pages](https://github.com/vygantas-meskauskis/learning-library/actions/runs/41597362507) deployed successfully. All 108 served website files matched staged content (normalizing checkout line endings). Source application code, course workflow copies and maintenance scripts returned 404 as intended.
+- Local validators passed 1,126 source and 1,120 staged internal-link/asset/anchor checks. All four live readers passed keyboard skip/back navigation and anchor checks at 1440px and 320px widths, with no page overflow or JavaScript errors.
+- All 87 Mermaid diagrams (49 .NET, 38 designer) rendered without syntax errors. Original HTML anchor IDs and Mermaid definitions are preserved. Every sample application file is byte-identical to its original Git blob.
+- Dependabot successfully scanned both nested NuGet and root Actions configurations. Azure deploy was skipped because `AZURE_CLIENT_ID` is unset; no Azure operations were performed.
+
+Only after these checks passed, the original repositories received canonical-location README and description notices and were archived:
+
+| Repository | Archived | README notice commit |
+|---|---|---|
+| vygantas-meskauskis/cloud-native-dotnet | Yes | `a4cfea9c4c9bbc38ef999530acbf3958acd0f9c6` |
+| vygantas-meskauskis/becoming-ai-native-designer | Yes | `9ccd329a858832ab025b4518125bddf68def4e25` |
+| vygantas-meskauskis/ai-native-design-lead-course | Yes | `de62f6993a1532ac09736e6ae5b20f05d9cb210b` |
+
+GitHub comparisons confirmed each original default branch is exactly one README-only commit ahead of the imported source commit, with zero commits behind. Histories remain intact; no repositories were deleted and no unrelated work was closed. No redirects or old-site banners were added. Future course edits belong in this library.
