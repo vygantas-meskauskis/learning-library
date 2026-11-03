@@ -13,6 +13,7 @@
 Each course is independent under `courses/<slug>/`. Its existing `index.html` reader, Markdown, templates and downloads stay together. The design-lead course also retains `AI-Native-Design-Lead-Course.html`. Readers link back to the library; their chapter anchor IDs are preserved.
 
 - `index.html` and `assets/`: the lightweight static course selector and shared navigation styles.
+- [AGENTS.md](AGENTS.md): the entry point for coding agents working in this library.
 - `.github/workflows/pages.yml`: validate, stage an allowlisted website artifact, and publish GitHub Pages.
 - `.github/workflows/{ci,codeql,deploy}.yml`: active automation for `courses/cloud-native-dotnet/sample`.
 - `scripts/`: standard-library-only website staging and link validation.
@@ -36,12 +37,22 @@ Integration tests need Docker (SQL Server Testcontainers), or your own SQL insta
 
 ## Add or update a course
 
-1. Put the complete course in `courses/<slug>/`, including its `index.html` reader, Markdown sources and required assets. Keep licenses and attribution; do not include build outputs or authoring/session notes.
-2. Add a course card to root `index.html` and a row to the table above. Use relative links, and add `../../index.html` navigation to each reader. Preserve existing anchor IDs when editing a reader.
+1. Choose a descriptive kebab-case slug, such as `practical-python`, and put the complete course in `courses/<slug>/`, including its `index.html` reader, Markdown sources and required assets. Keep licenses and attribution; do not include build outputs or authoring/session notes.
+2. Add a compact course card to root `index.html` with a topic, title, short description and one relative link to `courses/<slug>/`. Follow the existing card structure and add a row to the course table above. Add a visible **Back to library** link to each reader (`../../index.html` for a reader at the course root; adjust for deeper readers). Preserve existing anchor IDs when editing a reader.
 3. Keep the Markdown and the retained HTML reader in sync. This repository does not regenerate courses. Put downloadable helpers in `toolkit/` or `templates/`; if another asset directory is needed, explicitly add it to `scripts/build_site.py`.
-4. Run `python scripts/validate_site.py`, then `python scripts/build_site.py` and `python scripts/validate_site.py _site`. Preview `_site/` on desktop and mobile, check keyboard navigation and diagrams, and commit all related changes.
+4. Run `python scripts/validate_site.py`, then `python scripts/build_site.py` and `python scripts/validate_site.py _site`. Preview `_site/` on desktop and mobile. Confirm the new homepage card opens the reader, Back to library returns to the selector, keyboard navigation works, and every diagram and required asset/download loads. Keep unrelated courses unchanged.
 
-GitHub Pages publishes on pushes to `main`. Enable **Settings > Pages > Source > GitHub Actions** when setting up a fork. The artifact includes course reading material and helpers, not the sample application, active workflows, or course workflow examples. Source code links point to this repository on GitHub.
+For an AI agent, start in this repository and use:
+
+> Create a course about [topic] in this learning-library repository. Follow AGENTS.md and the README's Add or update a course instructions.
+
+### Publication
+
+Course work is complete locally after the checks above. Commit, push, or deploy only when explicitly requested; creating a course does not itself authorize publication.
+
+When publishing is requested, commit the related changes and push to the authorized branch. GitHub Pages publishes on pushes to `main`; after an authorized main push, verify the Pages workflow succeeds and the live homepage card, reader, navigation and downloads work.
+
+Enable **Settings > Pages > Source > GitHub Actions** when setting up a fork. The artifact includes course reading material and helpers, not the sample application, active workflows, or course workflow examples. Source code links point to this repository on GitHub.
 
 ## Provenance and rights
 
