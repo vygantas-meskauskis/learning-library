@@ -38,4 +38,6 @@ Secrets, environment rules, OIDC trust and repository variables are not transfer
 
 Pages uses root `.github/workflows/pages.yml`, not a branch-root Pages build. The website staging script includes only the home page, shared assets, course HTML/Markdown, and `toolkit/`/`templates/` files. Sample code and infrastructure, course `.github/` copies, source inventories and root maintenance scripts are not published as website paths. Links to those sources go to GitHub.
 
+GitHub Pages does not serve dotfiles. The toolkit's original `.editorconfig` stays unchanged in Git; website staging also exposes it as `toolkit/editorconfig.txt` for download.
+
 The original repositories receive canonical-location README/description notices and are archived only after this library's Pages deployment, live-reader checks, CI and CodeQL succeed. Archival retains commits and does not close unrelated work. No redirects or old-site banners are required.

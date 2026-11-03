@@ -18,10 +18,16 @@ def build():
             continue
         for source in sorted(course.rglob("*")):
             relative = source.relative_to(course)
-            if not source.is_file() or any(part.startswith(".") for part in relative.parts):
-                # The toolkit's editorconfig is a deliberate downloadable helper.
-                if relative.as_posix() != "toolkit/.editorconfig":
-                    continue
+            if not source.is_file():
+                continue
+            if relative.as_posix() == "toolkit/.editorconfig":
+                # Pages does not serve dotfiles; retain the original in Git and publish a download alias.
+                target = OUTPUT / "courses" / course.name / "toolkit" / "editorconfig.txt"
+                target.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copyfile(source, target)
+                continue
+            if any(part.startswith(".") for part in relative.parts):
+                continue
             public = (
                 len(relative.parts) == 1 and source.suffix in {".html", ".md"}
                 or relative.parts[0] in {"chapters", "modules"} and source.suffix == ".md"
