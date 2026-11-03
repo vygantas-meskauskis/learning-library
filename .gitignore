@@ -1,0 +1,8 @@
+.migration/
+.impeccable/
+.playwright-mcp/
+_site/
+__pycache__/
+bin/
+obj/
+TestResults/

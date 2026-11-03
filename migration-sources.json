@@ -1,0 +1,762 @@
+{
+  "imported": "2026-11-03",
+  "method": "Clean import of tracked default-branch files; original histories remain in the source repositories.",
+  "sources": [
+    {
+      "repository": "vygantas-meskauskis/cloud-native-dotnet",
+      "commit": "90c01aa7e2d77e488eaa3cf5f7b849b890ac9088",
+      "default_branch": "main",
+      "license": "No license file or GitHub-recognized license in the source snapshot; no new license is granted by this migration.",
+      "files": [
+        {
+          "path": ".github/dependabot.yml",
+          "sha256": "6dbf1c782b74be8f2e7c30f1ab39104a75c71bc556cca3540a8ac3f6d68f0cc1"
+        },
+        {
+          "path": ".github/workflows/ci.yml",
+          "sha256": "d1c5cc1bdcf18c1253e8113f9a6348e60333eb4236b50bdcbc101694919a7ab1"
+        },
+        {
+          "path": ".github/workflows/codeql.yml",
+          "sha256": "bbd8f5756b9851d418c03622203c09755fdaad593229c17df8d3e0f8666aeda5"
+        },
+        {
+          "path": ".github/workflows/deploy.yml",
+          "sha256": "d91f3dd42d18d35a1e912b8d72cf9a32418f684cf365e57545488577cb3c0d1e"
+        },
+        {
+          "path": ".gitignore",
+          "sha256": "6d6041024418eb69262e17e74b581a08ff8c3da752b2ec5f506cd16fb58f5c49"
+        },
+        {
+          "path": ".nojekyll",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "GLOSSARY.md",
+          "sha256": "075469ba5372d50f8a8721e3a72b3290142208fd4daea51b4d359e4c25aa557a"
+        },
+        {
+          "path": "README.md",
+          "sha256": "eecd59d05fbd3bd102ab994aba9d97e7313656c6fe8a91622c0787c07b9c2047"
+        },
+        {
+          "path": "chapters/01-from-legacy-to-cloud-native.md",
+          "sha256": "7c6424da084dea6a54d4e4dce77af0f763027166daa92b2d97aa16289469e65d"
+        },
+        {
+          "path": "chapters/02-modern-dotnet-in-one-sitting.md",
+          "sha256": "ea795a49a0489cf358b1da0f4788478bdbad5eac478103a9c70bc756fb3b0374"
+        },
+        {
+          "path": "chapters/03-a-solution-set-up-like-a-pro.md",
+          "sha256": "034fda88135d55ef25c4cc35550f2a91bf57ea12cddf0573fa0616e39b6aa653"
+        },
+        {
+          "path": "chapters/04-designing-the-api.md",
+          "sha256": "3f717870198dd98940976b3e3265b4ee91a978c453d1b192bd8e399585d3c77c"
+        },
+        {
+          "path": "chapters/05-data-ef-core-and-azure-sql.md",
+          "sha256": "5d3330fa6549f344adb5489b53f3a9deca21c19207b9ba683950eb5b5a96df01"
+        },
+        {
+          "path": "chapters/06-local-dev-with-aspire.md",
+          "sha256": "1a63b81d4b6a26d95b6ff05c8becb226692f3aac00b0d053fa37431d55afb4ee"
+        },
+        {
+          "path": "chapters/07-background-work-and-messaging.md",
+          "sha256": "12955874ee72e22609d7db329737e16ac4099b92045c08752c11cb4222714a21"
+        },
+        {
+          "path": "chapters/08-github-as-the-teams-home.md",
+          "sha256": "ec54202b3ed1027d5ab9cf85182afd1585ebbd251d2a21cfe5cfed44d9253bbf"
+        },
+        {
+          "path": "chapters/09-ci-with-github-actions.md",
+          "sha256": "9d69b863bbb3394f305fe922861d69b273f0bb2a3a9a496e31182a494f740cb7"
+        },
+        {
+          "path": "chapters/10-choosing-azure-services.md",
+          "sha256": "8f342805a40c4d9a2a2d503bb10c9b1af6a7196ab09256c3d5927bfc1f1b9003"
+        },
+        {
+          "path": "chapters/11-infrastructure-as-code.md",
+          "sha256": "9cb1fdf8c00502fff5300c41e904a03d0cb4535d3589a5b965ea0a9c22178d29"
+        },
+        {
+          "path": "chapters/12-cd-to-azure-with-oidc.md",
+          "sha256": "648ec6d321045b48b85cfb4acf94fcfc3e027d48e8da5e921c2948b9bf5b114e"
+        },
+        {
+          "path": "chapters/13-identity-and-secrets.md",
+          "sha256": "96423557245bec65c1db98c33f3fea8c3f42bd3efbb797d4f73beb1bf4d2391d"
+        },
+        {
+          "path": "chapters/14-reliability-patterns.md",
+          "sha256": "f89138ab0257b9b477c3345ee76c686a2636c20102da1c52de1df11487095d1c"
+        },
+        {
+          "path": "chapters/15-observability-logging-and-opentelemetry.md",
+          "sha256": "3a4373830c41113d5a88afd97a9c01b3be92025c2d6f38a08504d46ef7720534"
+        },
+        {
+          "path": "chapters/16-observability-azure-monitor-kql-slos.md",
+          "sha256": "29ffcc877a0232bcf585deb32386df33b45429fa731391bafb2cfc34ff688e9d"
+        },
+        {
+          "path": "chapters/17-testing-strategy.md",
+          "sha256": "e3ae83704e2600d9496f1f7d9e0bcd2cb2d089b59f18c08f90d0a38cbc79d62f"
+        },
+        {
+          "path": "chapters/18-performance-and-scale.md",
+          "sha256": "d202a9dec8307becd7ea969739e269da4a8aab0d0282cbc40ee35740eefa2671"
+        },
+        {
+          "path": "chapters/19-running-production.md",
+          "sha256": "ee1d3640b84a9066d88e68f881ad434ed375d965bcab3b8ad2b666ff66f47709"
+        },
+        {
+          "path": "chapters/20-ai-assisted-dotnet-development.md",
+          "sha256": "0c6098b1dcaea0b68398a605094227320579edb0f31e613df0448198c837eff9"
+        },
+        {
+          "path": "chapters/21-your-toolkit.md",
+          "sha256": "1ad2e7ea17c8a22805267004958388cd5a664a2870c6089a11074930c2fe4902"
+        },
+        {
+          "path": "index.html",
+          "sha256": "c832b6570e48f6c459aa58851833d879a66a29f3f61490a23896e320aaabbb1d"
+        },
+        {
+          "path": "sample/.config/dotnet-tools.json",
+          "sha256": "bf9d3489466782a757a16766134228156e58e3309017eebd32480cf8c94e6f3b"
+        },
+        {
+          "path": "sample/.editorconfig",
+          "sha256": "c0b9bf4ca32a16fd70af22b71a5d4434450b722423ae3470c4ef318610d1bee8"
+        },
+        {
+          "path": "sample/Directory.Build.props",
+          "sha256": "2c2b372746b09f2240127770f7fa66f45f2016358e545773c7d35014da27570f"
+        },
+        {
+          "path": "sample/Directory.Packages.props",
+          "sha256": "106528a65613ba5676c995862c8df6f5b671c221d17b9503da0964f171158172"
+        },
+        {
+          "path": "sample/Ledgerly.slnx",
+          "sha256": "acfae32598fa056e396dee5001aa098f7d1673fd51e91198cb9cce0be82bf62d"
+        },
+        {
+          "path": "sample/aspire.config.json",
+          "sha256": "dda8d3548605b09ef1ed8109335e286118cd79978f6b48883a6ebf609cf77732"
+        },
+        {
+          "path": "sample/global.json",
+          "sha256": "e3748edc4539d16212e8dc009f6e47fff1fd0f8decdbe48c169eea339b31495d"
+        },
+        {
+          "path": "sample/infra/main.bicep",
+          "sha256": "233506d336a73274f022dfa5d886fac805031e338ac96d7e13cea345d66330bd"
+        },
+        {
+          "path": "sample/infra/main.bicepparam",
+          "sha256": "3ebf152d0f6014f2e46fe4fb002811f5f1732a8332b61c0cb07d3711a25344f1"
+        },
+        {
+          "path": "sample/infra/modules/apps.bicep",
+          "sha256": "76daf2f1a50639cea716ce25409eafffa8b0e2d7112fb6a64b4d8a13b11a8588"
+        },
+        {
+          "path": "sample/infra/modules/environment.bicep",
+          "sha256": "56349d2a91e20c34bb251b163a70a7718725cff02f13f9b9c76dbd0acfb18e33"
+        },
+        {
+          "path": "sample/infra/modules/identity.bicep",
+          "sha256": "71f549d2ceff6fdf14a88122a17b7fee992001ea345d14577916d602efaef1ca"
+        },
+        {
+          "path": "sample/infra/modules/keyvault.bicep",
+          "sha256": "de794917c32aa0a3a77334692bc6bb40890988737ae18bc8e8cbaafd0dbf7c74"
+        },
+        {
+          "path": "sample/infra/modules/migration-job.bicep",
+          "sha256": "6ef805f5a7e29c4787af689c22791cd12d8908dacbdeeaac96db4ae69e778c12"
+        },
+        {
+          "path": "sample/infra/modules/monitoring.bicep",
+          "sha256": "6b7f1db588193dbe55e2a15893e8913256ff7b7b0f049b7dba0c6dc6756b141b"
+        },
+        {
+          "path": "sample/infra/modules/redis.bicep",
+          "sha256": "e503ecfae5e0a90cdfdcd5a96e2aa275e8b06b59b676a8602da1cd3a5d165019"
+        },
+        {
+          "path": "sample/infra/modules/registry.bicep",
+          "sha256": "2c9e0ff73a7be5ef892249ff091b32c3f80857ad5522e81640deeacc72ef9c6f"
+        },
+        {
+          "path": "sample/infra/modules/servicebus.bicep",
+          "sha256": "abc89c4e3dca15a4f15eb3f38d442e0670810757b4658e185d109d20e9e2f34b"
+        },
+        {
+          "path": "sample/infra/modules/sql.bicep",
+          "sha256": "bff91cb118c1abde21ca1ebdcab918449663c4de0b898a1bf342246ab460a1d1"
+        },
+        {
+          "path": "sample/nuget.config",
+          "sha256": "8ac856bcaab3c9ec7ceb1a21a73340d8bc0349cc9006b1163321d5839b73dfd1"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/ApiConventions.cs",
+          "sha256": "da7c2d0aca6dfbcb244cacbe9b85d9744748f5216bfd1c40b9c06de8def15dbf"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/Endpoints/AlertEndpoints.cs",
+          "sha256": "289141a115a60e7c21cfd276a2689dad56a6a17fccfae750c6f15aa0d22c9f26"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/Endpoints/ImportEndpoints.cs",
+          "sha256": "768ad28deb7aa04d7b75a0841d7649efd40bcbaf45c247172390cb4acbdbb6e3"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/Endpoints/PortfolioEndpoints.cs",
+          "sha256": "025c543cc8e4c409083dba33d9125fb3b02ecfd734c2d3092ae3eeaca894406f"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/Ledgerly.Api.csproj",
+          "sha256": "d9f249c5532f57538132e3372cdc0d7b534e956d6e7e746d0e9340a81d4a3b29"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/Ledgerly.Api.http",
+          "sha256": "24a79e3368dca533b240ae1525502390229de142533810951e921cbbeaefe1f8"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/Program.cs",
+          "sha256": "f4e675dc34067852389e0204826feb013bcb5d9651fd49b305a49dc662727ba8"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/Properties/launchSettings.json",
+          "sha256": "cd4d3c9f30d047272280299ab7d483fb69563c6e0d92b0d45ba086aa2b228b2e"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/Services/ValuationService.cs",
+          "sha256": "44491392bce95205f89d440e81143fa18e97f34c241c66d10747bdcded1a570b"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/appsettings.Development.json",
+          "sha256": "9557a597e9dd7554b0e38a810b9dacf03cb0fe90bae79beb0bd92bc7516d27df"
+        },
+        {
+          "path": "sample/src/Ledgerly.Api/appsettings.json",
+          "sha256": "00ac385d8eaddb6c9488b2707124f6a65c5878a30ab314ec067baf4ca8a6c048"
+        },
+        {
+          "path": "sample/src/Ledgerly.AppHost/AppHost.cs",
+          "sha256": "b4f91a9f212e97a5200fabf5448b4b497e5a35fab8af4ab531db94137ba47754"
+        },
+        {
+          "path": "sample/src/Ledgerly.AppHost/Ledgerly.AppHost.csproj",
+          "sha256": "feedaf5d62dbd46896324e4183fa3c083fc0dad048cc69937c914bbafacc8521"
+        },
+        {
+          "path": "sample/src/Ledgerly.AppHost/Properties/launchSettings.json",
+          "sha256": "dc65096fc05bb2f06c7e95a33bbde52c215a9b1c90d51139dbf4c74ee0cd4d99"
+        },
+        {
+          "path": "sample/src/Ledgerly.AppHost/appsettings.json",
+          "sha256": "daacc1e4ef8338163fcd287a76d5c3b0e0ae20d011b6fffc3d4b0e9c5fde619d"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Data/DesignTimeDbContextFactory.cs",
+          "sha256": "642793b9efc5943c73223974ae3bd426cddc2ea3f24a057d11a35384d931c96d"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Data/LedgerlyDbContext.cs",
+          "sha256": "3c46addaf468dd4bd7b908e9070e637f3f352912b7e02936b45e65d629d7b9d9"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Data/Migrations/20261028152017_Initial.Designer.cs",
+          "sha256": "a12323d5bf46cead55adb4f28898749646cb34ead13f9762859d1f3355a72afa"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Data/Migrations/20261028152017_Initial.cs",
+          "sha256": "171637b54b80758a635fc638c984303b359124fd794a83e9d10d440d96644ed6"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Data/Migrations/LedgerlyDbContextModelSnapshot.cs",
+          "sha256": "aca7314ef6a038030a75b675a8ac0bf16d1eaf390b9c94ff7b92be7adb3d8cd7"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Diagnostics/LedgerlyTelemetry.cs",
+          "sha256": "a7dc075f52367ca00bd5f7bb789ecbaa3d30080e1563e54d60ca0bc1a49ca38c"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Domain/Holdings.cs",
+          "sha256": "6425e9cc6114fd2a8d98837700fde96de15dd425d2fb4145676ef12bde173b94"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Domain/Imports.cs",
+          "sha256": "9ac0c1ed0ab0f843383654af23e34347439b5c67b6267496cb58e1987059aca4"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Domain/Portfolio.cs",
+          "sha256": "6c0d8da68380e98c391a877e3b4c718ccd67629e53c2781745a2270a6b7c24fc"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Imports/BrokerCsvParser.cs",
+          "sha256": "d9ffd11f8f09525bb24712fc1bf4c6cb90b59c290a3409d40ad3ea1319900d86"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Ledgerly.Core.csproj",
+          "sha256": "980307c0315767490c02df7384241810b30e7c5bec03e13faae46650deab0268"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Market/MarketDataClient.cs",
+          "sha256": "a4beeb22ee42732ac5390b91f2e0699c7028aee63d3634d8c3492a97185be0b7"
+        },
+        {
+          "path": "sample/src/Ledgerly.Core/Messaging/Outbox.cs",
+          "sha256": "f64ca3fb5a7ac75321485f1121eb6c61ce5810c588d318d8ae12e25f861cc87f"
+        },
+        {
+          "path": "sample/src/Ledgerly.MarketData/Chaos.cs",
+          "sha256": "dc07e991bea97d7783d5b0c80deff0c9b25c04169e72a582b5f2ecbffd558fed"
+        },
+        {
+          "path": "sample/src/Ledgerly.MarketData/Ledgerly.MarketData.csproj",
+          "sha256": "0d581ed857b39b9dcda692307ab312df1d976e6b1147ff0ec2774915139e0a4f"
+        },
+        {
+          "path": "sample/src/Ledgerly.MarketData/PriceGenerator.cs",
+          "sha256": "452169bc76835af668098b910659da494c204c348134cb58057b6c979b1771ec"
+        },
+        {
+          "path": "sample/src/Ledgerly.MarketData/Program.cs",
+          "sha256": "da4fbc61fba4c9e6ba86a713912f9c7fd50954cb5f31cd3899003f83fd1c9127"
+        },
+        {
+          "path": "sample/src/Ledgerly.MarketData/appsettings.json",
+          "sha256": "92901cfaa86f8a54ecc1450ba38c363b73c40b38c81069a59f005215d7d04740"
+        },
+        {
+          "path": "sample/src/Ledgerly.MigrationService/Ledgerly.MigrationService.csproj",
+          "sha256": "6e056ff6313e92fe29d3c43c940efb15ba213b0e80b15cab398d54bb64fd5553"
+        },
+        {
+          "path": "sample/src/Ledgerly.MigrationService/Program.cs",
+          "sha256": "bc0ed94e10ed163e6ad491771f99a6c574ccbdbbc449ff9a5d4e17a1bd92b2d9"
+        },
+        {
+          "path": "sample/src/Ledgerly.ServiceDefaults/Extensions.cs",
+          "sha256": "a64095521e699d4d61b2895a97c7cb9a001f3fdc4bd98d49217f1e97b68d224b"
+        },
+        {
+          "path": "sample/src/Ledgerly.ServiceDefaults/Ledgerly.ServiceDefaults.csproj",
+          "sha256": "59937706fdc40d78300ecd57dbed74273b9743a96a3e5be395c18087b55e4a85"
+        },
+        {
+          "path": "sample/src/Ledgerly.Worker/AlertEvaluator.cs",
+          "sha256": "9df4db49ffe6b7468ea94f1e6c2eb2ec1a2f03edaee3f5f0ed4e53477ee260da"
+        },
+        {
+          "path": "sample/src/Ledgerly.Worker/ImportProcessor.cs",
+          "sha256": "2692cc1e66956008b5dca46c39cd6be5bdd1405ff13da162fe923b3bf7b4539c"
+        },
+        {
+          "path": "sample/src/Ledgerly.Worker/Ledgerly.Worker.csproj",
+          "sha256": "3344e8100c27edc2307a0ec414969ac81b862e20d0ae380e2ebfdc8cddf7986f"
+        },
+        {
+          "path": "sample/src/Ledgerly.Worker/OutboxRelay.cs",
+          "sha256": "c47aecff8b56a4dbc91488935905312af29b3254e8b36081b6e47b183e53105c"
+        },
+        {
+          "path": "sample/src/Ledgerly.Worker/Program.cs",
+          "sha256": "838bb575e227f23c80987a8fe99cafbb1951944502ba2a6d678c17a13a66ba81"
+        },
+        {
+          "path": "sample/src/Ledgerly.Worker/appsettings.json",
+          "sha256": "791ec34fff45ae2ee72c2b3836a9813bbb6fb48b6512730ddcadcee2eedb7ab8"
+        },
+        {
+          "path": "sample/tests/Ledgerly.IntegrationTests/Ledgerly.IntegrationTests.csproj",
+          "sha256": "9bfbc0c1c2c11b5b718e19241ea7c228b7170338e818021760f167338810c7d0"
+        },
+        {
+          "path": "sample/tests/Ledgerly.IntegrationTests/LedgerlyApiFactory.cs",
+          "sha256": "af8a191471ff73a810863b668046e5b39ae1811725bd5e21a06e358a1397377f"
+        },
+        {
+          "path": "sample/tests/Ledgerly.IntegrationTests/PortfolioApiTests.cs",
+          "sha256": "127b512633cdc6bc522fece53938d83e2d3c42a7ab604297716f7f56dc20c107"
+        },
+        {
+          "path": "sample/tests/Ledgerly.UnitTests/BrokerCsvParserTests.cs",
+          "sha256": "9329eae2d1d0b7724dfc8fd3e28ce7d0a191888454589bea79d13fae39469f06"
+        },
+        {
+          "path": "sample/tests/Ledgerly.UnitTests/HoldingCalculatorTests.cs",
+          "sha256": "f0b18d7e109814141b4bee3258ab2119fa5f373fd316bbf09f73d8d7b6255849"
+        },
+        {
+          "path": "sample/tests/Ledgerly.UnitTests/Ledgerly.UnitTests.csproj",
+          "sha256": "f4e6900ef03e657f1d90a9bcae925081b051dfefe693c45de36116909923d52e"
+        },
+        {
+          "path": "sample/tests/Ledgerly.UnitTests/PriceTests.cs",
+          "sha256": "6d0e7689bd18b6ecbff7f3d6bc3131bc68044e739caa79c8d080bace6aa446c5"
+        },
+        {
+          "path": "toolkit/.editorconfig",
+          "sha256": "c0b9bf4ca32a16fd70af22b71a5d4434450b722423ae3470c4ef318610d1bee8"
+        },
+        {
+          "path": "toolkit/Directory.Build.props",
+          "sha256": "2c2b372746b09f2240127770f7fa66f45f2016358e545773c7d35014da27570f"
+        },
+        {
+          "path": "toolkit/Directory.Packages.props",
+          "sha256": "106528a65613ba5676c995862c8df6f5b671c221d17b9503da0964f171158172"
+        },
+        {
+          "path": "toolkit/README.md",
+          "sha256": "09b85991ed9c2bd2c8b0d367c6143420d80380b1de5c556e31113919a0cd1cd7"
+        },
+        {
+          "path": "toolkit/ServiceDefaults.Extensions.cs",
+          "sha256": "a64095521e699d4d61b2895a97c7cb9a001f3fdc4bd98d49217f1e97b68d224b"
+        },
+        {
+          "path": "toolkit/adr-template.md",
+          "sha256": "49bc7da9e958d37598befb937b3e64f096cbd883fd58e9df784013a18226dae5"
+        },
+        {
+          "path": "toolkit/cheat-sheet-old-to-new.md",
+          "sha256": "28e17cff16110636e579a2592c8fcd1342e5ea5eb639c9a8233a16ae146c228f"
+        },
+        {
+          "path": "toolkit/ci.yml",
+          "sha256": "d1c5cc1bdcf18c1253e8113f9a6348e60333eb4236b50bdcbc101694919a7ab1"
+        },
+        {
+          "path": "toolkit/copilot-instructions.md",
+          "sha256": "407a77eb3ad0c3b7bff54bc9876bac54a5e291a50768b05c1a0270236304c55d"
+        },
+        {
+          "path": "toolkit/dependabot.yml",
+          "sha256": "6dbf1c782b74be8f2e7c30f1ab39104a75c71bc556cca3540a8ac3f6d68f0cc1"
+        },
+        {
+          "path": "toolkit/deploy.yml",
+          "sha256": "d91f3dd42d18d35a1e912b8d72cf9a32418f684cf365e57545488577cb3c0d1e"
+        },
+        {
+          "path": "toolkit/kql-queries.md",
+          "sha256": "17b1ae4ecdff49646c2ee09340d3a19668d0ec1b91ed164fb402184c3c6fcaec"
+        },
+        {
+          "path": "toolkit/postmortem-template.md",
+          "sha256": "29baf2175802b878fd93ffcf73225501dbe81ef2682aa0f1eea55399d49909dd"
+        },
+        {
+          "path": "toolkit/pr-review-checklist.md",
+          "sha256": "5b934aa1020ac3d4967e96d4aa0d0973f2fe7439fceb5d3ae23686550705b5d4"
+        },
+        {
+          "path": "toolkit/production-readiness-checklist.md",
+          "sha256": "409ac58da6f4456e20b3aefc88c9ef559348de70a8efefbabc81213bb9028eab"
+        },
+        {
+          "path": "toolkit/pull_request_template.md",
+          "sha256": "fe2d39fcd6146593d181ece74b5c55be1e02a08eec9a5b231274ac813a6e5307"
+        },
+        {
+          "path": "toolkit/runbook-template.md",
+          "sha256": "8daf42b1b54eee3e3263b0710ab10a423c11016ce5e513715103c0ca95f7bf11"
+        },
+        {
+          "path": "toolkit/slo-worksheet.md",
+          "sha256": "057ac030eca552f59b3ee90b65b0b3367215b227dc63803f522292f3513126f1"
+        }
+      ]
+    },
+    {
+      "repository": "vygantas-meskauskis/becoming-ai-native-designer",
+      "commit": "0def7462f43960d08e662c4d1f459ed122141178",
+      "default_branch": "main",
+      "license": "No license file or GitHub-recognized license in the source snapshot; no new license is granted by this migration.",
+      "files": [
+        {
+          "path": ".nojekyll",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "GLOSSARY.md",
+          "sha256": "135a44d9daab475910e86376f70bfefb157454ffe3b5a682af7144c13cc07e8a"
+        },
+        {
+          "path": "README.md",
+          "sha256": "b1d07b4d5581bced6a4cc4657a48306203cdf649629e6f58d4947cee1dd5ec90"
+        },
+        {
+          "path": "chapters/01-orientation.md",
+          "sha256": "78b81daf0ccd5b0e5694261ee188f29d00a789260f4324a16df6475fba9885f5"
+        },
+        {
+          "path": "chapters/02-ai-essentials.md",
+          "sha256": "bfba7af273e221d74c628808b62c31a24418cd3dc2dfe3e2e476d855740591cf"
+        },
+        {
+          "path": "chapters/03-greenfield-ideal-setup.md",
+          "sha256": "58fd1326b420808360b00077d0e5fa73cc988d82e764bc0481f1683f8f936c4e"
+        },
+        {
+          "path": "chapters/04-the-inherited-mess.md",
+          "sha256": "5352377329f04aa6098faef5b88e67712130037970a9442045359d3780b11936"
+        },
+        {
+          "path": "chapters/05-tokens-and-variables.md",
+          "sha256": "9f5ed5cb1f77bbf669b88e0ecce7cbe980ed4729d180975b15af9e31370cfe41"
+        },
+        {
+          "path": "chapters/06-components.md",
+          "sha256": "644c16fac88691695f0e69d6cd3d378af3b2def28dab42669424b9679f112f29"
+        },
+        {
+          "path": "chapters/07-figma-and-code.md",
+          "sha256": "1e09c4501f80b82979ab5cc01308f56e7f62e53b4f1f23a250217133cd47ea03"
+        },
+        {
+          "path": "chapters/08-giving-the-system-to-ai.md",
+          "sha256": "08a82d1174b199bdd654671f5eb299011fb58471749397bd18161695958f2f3c"
+        },
+        {
+          "path": "chapters/09-code-connect-and-mcp.md",
+          "sha256": "1c71d339fb6fecfe9b3ee9714cd3fbf392967ea12d7c65778640e80e6166071b"
+        },
+        {
+          "path": "chapters/10-designing-with-system-and-ai.md",
+          "sha256": "777d78faa73d6d45c9bceecca3cc9b36c67438ef973cac8d798c57d7db999b2d"
+        },
+        {
+          "path": "chapters/11-prototyping.md",
+          "sha256": "8ed3f567509ded1b8cbb9d2f9afc4f3e4d5f0fabf4e048f7772054ffedb7f1bc"
+        },
+        {
+          "path": "chapters/12-design-to-code-with-codex.md",
+          "sha256": "88e6355b87f219a3bd55968550d3cb2be85b5231a81a07f4faa65f8a9b56a080"
+        },
+        {
+          "path": "chapters/13-research.md",
+          "sha256": "59c1a103eef1b7dc7bfa225e80bf1f10836d0a92af1689a8220523d596174ca7"
+        },
+        {
+          "path": "chapters/14-designing-the-ai-feature.md",
+          "sha256": "fe7ad98222f4ff435070f071517d4a1b0f93cb093fe355ade16a8498020e85a5"
+        },
+        {
+          "path": "chapters/15-working-with-devs-and-pms.md",
+          "sha256": "db508e443477bdbf17343d76c54231b74bf9fd169fb3de2d7c4a582884c6896b"
+        },
+        {
+          "path": "chapters/16-toolkit.md",
+          "sha256": "f2ea7eb1a965cedf682f1007195108d75e17f742bea1da718ad673dc3819a27e"
+        },
+        {
+          "path": "index.html",
+          "sha256": "df111bcaa5d3075d757afec15540d2c0749b0636b1d2e1fc910b1c526816c499"
+        },
+        {
+          "path": "toolkit/AGENTS.md",
+          "sha256": "0f470bb426075d4ba375244e87261f3879745de401e953b14aae260b3c483eaa"
+        },
+        {
+          "path": "toolkit/DESIGN.md",
+          "sha256": "ca4702c103d06b7f774cf24334d0e69a7ed835aa01a76a46fe4a38b753a40615"
+        },
+        {
+          "path": "toolkit/README.md",
+          "sha256": "2e5ee3b3385b96edeb00610996aa0259cbd6907acce62882858f0369d5dc8f6b"
+        },
+        {
+          "path": "toolkit/UX.md",
+          "sha256": "32d01c1a2a3ee697f5c3496b167e86944a1ee55a14d29c438539e2b7d63d2799"
+        },
+        {
+          "path": "toolkit/chatgpt-project-instructions.md",
+          "sha256": "d9506c87b6147e5375504495a7ffbbed33d432b561d998b5132373bca32865d8"
+        },
+        {
+          "path": "toolkit/checklists.md",
+          "sha256": "10803e7764a1ad4c822d3157e85fa7a2077e9606437b8cac5162fbdfc9e3811d"
+        },
+        {
+          "path": "toolkit/component-description-template.md",
+          "sha256": "3d38439d1f6cb16187989e90a8888fae2bf2f35d237f4aa06c80aa62d0ad68dc"
+        },
+        {
+          "path": "toolkit/figma-agent-skills.md",
+          "sha256": "2c33072bfb95726ed3139bc4c27d28c6bee24df7611f5669c6cf1168afc6df46"
+        },
+        {
+          "path": "toolkit/prompt-pack.md",
+          "sha256": "f068dfc6892738947c44cf61a1850f0760d6bde94815a7512bd06fd36827f45b"
+        }
+      ]
+    },
+    {
+      "repository": "vygantas-meskauskis/ai-native-design-lead-course",
+      "commit": "bbacc6ce5c03528ac0a26b4b314839a86eb8d5ad",
+      "default_branch": "main",
+      "license": "No license file or GitHub-recognized license in the source snapshot; no new license is granted by this migration.",
+      "files": [
+        {
+          "path": ".nojekyll",
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        },
+        {
+          "path": "00-START-HERE.md",
+          "sha256": "46a1e5dec2fb713ca40231b77fbc0c56352d483cc28ae5f9a9a7dc8d10beefa4"
+        },
+        {
+          "path": "AI-Native-Design-Lead-Course.html",
+          "sha256": "93d43c506e254f3b21a4008462344a3051886e860cab63f00e9753f24c7ef361"
+        },
+        {
+          "path": "GLOSSARY.md",
+          "sha256": "ab88bcf76c0cea03ae74a130e76b38a7a2c1f4402543178517578b20ce21c132"
+        },
+        {
+          "path": "README.md",
+          "sha256": "ac2b432e5938dc8cc755ca0f4be3f89f799146f1ac341e098209f02e59a2117d"
+        },
+        {
+          "path": "RESOURCES.md",
+          "sha256": "ea0c071cb9f80bf4f63068877ff3eeb2b699960c3f0457820398bfa30a97d440"
+        },
+        {
+          "path": "index.html",
+          "sha256": "93d43c506e254f3b21a4008462344a3051886e860cab63f00e9753f24c7ef361"
+        },
+        {
+          "path": "modules/01-the-shift.md",
+          "sha256": "170986160705b384c4c34dd33228be77ee213642ca570796c77abe1a15b63630"
+        },
+        {
+          "path": "modules/02-how-ai-works.md",
+          "sha256": "97d9982c6fc3d02c84b48ea499a0932b63949d3f6981a38eac3e0d31470af910"
+        },
+        {
+          "path": "modules/03-working-with-ai.md",
+          "sha256": "9587990c02b16e4b8a82270241163eaffb5d8dbd0851eafd9fa0c3fd7fee2d52"
+        },
+        {
+          "path": "modules/04-ai-across-the-design-process.md",
+          "sha256": "bc3437074db4ef4b43938525ac219232f729b8df59e9fdd8d4e5950adc8155ea"
+        },
+        {
+          "path": "modules/05-figma-ai-toolkit.md",
+          "sha256": "1fadbe45d8dbd1df39edb3250947f31588985865ebf2844aa7a73312f8bea8bb"
+        },
+        {
+          "path": "modules/06-ai-prototyping.md",
+          "sha256": "73812ac5b7651382bcf1a77d3db4657f606463231eb4864edf6b91fe5f805a82"
+        },
+        {
+          "path": "modules/07-design-system-foundations.md",
+          "sha256": "fc711c3f4ab362ae41905aeae0f3d446e86617d8d7fa44312143a7a85fd00b90"
+        },
+        {
+          "path": "modules/08-ai-ready-design-system.md",
+          "sha256": "6c20ebadbf99e0f4fdf2a27ef1dd37b186942f401c42edf90f0e94ced2230210"
+        },
+        {
+          "path": "modules/09-context-engineering.md",
+          "sha256": "b1902fbd1c51748311798640d2a8b0065acb6ef8c9d764d5e4953a4bfe44ce54"
+        },
+        {
+          "path": "modules/10-design-to-code.md",
+          "sha256": "9e561001d07ece7ccde868f4f1e0cc911936cd1700737ad2758a6284eeb7007c"
+        },
+        {
+          "path": "modules/11-designer-developer-collaboration.md",
+          "sha256": "80b3816b71d2414593408f4b8561acee21f54499fbd4005d3f65a7089c19e7af"
+        },
+        {
+          "path": "modules/12-designing-ai-features.md",
+          "sha256": "d8376237effb701fca97f4fb8b566a3ab0c29fc171012cb8eced45ed57874689"
+        },
+        {
+          "path": "modules/13-leading-ai-adoption.md",
+          "sha256": "c8e6eb83c53ff2e30ab87e75bcdc0cd2250f110c17250cb9faf0bec113cd3a0a"
+        },
+        {
+          "path": "modules/14-capstone-and-90-days.md",
+          "sha256": "59197e985821e88735d1b45cccd57387503f4da96c65d2dcd95295098e56ebd0"
+        },
+        {
+          "path": "templates/90-day-plan.md",
+          "sha256": "657e4cc36bc7dd7eb71e66105437d9341ec5d533f793b9ee8b7d94a824aa6fc4"
+        },
+        {
+          "path": "templates/AGENTS.md",
+          "sha256": "e14320de310cbfbb12612f526f3b47b123be5e2d80cb9369aa86a3bd4dee87f8"
+        },
+        {
+          "path": "templates/DESIGN.md",
+          "sha256": "4195778e76a17d39ced56aa0f7c76c4229a68745deb5d83112023c0eb5e058f2"
+        },
+        {
+          "path": "templates/README.md",
+          "sha256": "4e1b8b35697b722d19c6e54e3e0c0a528d3ebf983c24487ffbb919655b8016d0"
+        },
+        {
+          "path": "templates/UX.md",
+          "sha256": "13c3858a7adaaf5a5db76d3e3930c4f18fe232373fc0c0317461e666405bdb79"
+        },
+        {
+          "path": "templates/ai-log.md",
+          "sha256": "757f7ceb74fc8eabac8fe3770e4a6577ccf7aee6adcff4a25a053cfef2047e84"
+        },
+        {
+          "path": "templates/ai-policy.md",
+          "sha256": "1577b6eb485accf2abbe0747ebd0c0259e3786f18b6dc588d9221fab7b4280df"
+        },
+        {
+          "path": "templates/collaboration-contract.md",
+          "sha256": "71e18cc94ddcc0ace11e5607854768c12901ec730909224438709dabe4f63012"
+        },
+        {
+          "path": "templates/context-experiment.md",
+          "sha256": "a774529d33f8ccc5de805472f103badc1e4e8cdd6ddc840c6f8497c4e83bb7d5"
+        },
+        {
+          "path": "templates/design-qa-checklist.md",
+          "sha256": "1044c9ce5ada57746b58289174358d2b27a780db2e45b90e9be823051e22e777"
+        },
+        {
+          "path": "templates/drift-log.md",
+          "sha256": "9a9230b1c50c6817469cf61cd04584f6387d1287c2f1ef5a5d0ebe0a16316a1f"
+        },
+        {
+          "path": "templates/feature-brief.md",
+          "sha256": "7ec7ddca1ff67cac4755b7eb385cd530ca26debb62aef65425b141bdad8b3425"
+        },
+        {
+          "path": "templates/pilot-plan.md",
+          "sha256": "c33b9ee4b372b20bbe95a7f256bb895cd141a3759f4ab17bc3ba06ef460bceb8"
+        },
+        {
+          "path": "templates/prompt-library.md",
+          "sha256": "3492312a1690af7533779242bf12e4c1687f8489ddf885a9a191e54a1fb4d41b"
+        },
+        {
+          "path": "templates/skills-matrix.md",
+          "sha256": "d77dba847a7781632815358c73b0f901215f716f5fb9b273896e0cd97e2144be"
+        }
+      ]
+    }
+  ]
+}
