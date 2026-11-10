@@ -11,12 +11,12 @@
   </ItemGroup>
 
   <ItemGroup Label="Aspire">
-    <PackageVersion Include="Aspire.Hosting.Azure.ServiceBus" Version="13.6.4" />
-    <PackageVersion Include="Aspire.Hosting.Redis" Version="13.6.4" />
-    <PackageVersion Include="Aspire.Hosting.SqlServer" Version="13.6.4" />
-    <PackageVersion Include="Aspire.Azure.Messaging.ServiceBus" Version="13.6.4" />
-    <PackageVersion Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="13.6.4" />
-    <PackageVersion Include="Aspire.StackExchange.Redis.DistributedCaching" Version="13.6.4" />
+    <PackageVersion Include="Aspire.Hosting.Azure.ServiceBus" Version="13.6.5" />
+    <PackageVersion Include="Aspire.Hosting.Redis" Version="13.6.5" />
+    <PackageVersion Include="Aspire.Hosting.SqlServer" Version="13.6.5" />
+    <PackageVersion Include="Aspire.Azure.Messaging.ServiceBus" Version="13.6.5" />
+    <PackageVersion Include="Aspire.Microsoft.EntityFrameworkCore.SqlServer" Version="13.6.5" />
+    <PackageVersion Include="Aspire.StackExchange.Redis.DistributedCaching" Version="13.6.5" />
   </ItemGroup>
 
   <ItemGroup Label="ASP.NET Core and EF Core">
