@@ -1,0 +1,124 @@
+# Deploy on merge to main (chapters 9 and 11). No agent can start or edit this
+# workflow's credentials: secrets live in the "production" environment, which is
+# restricted to the main branch, and Azure access is OIDC (no stored keys).
+# Infrastructure deploys need a human approval ("production-infra" environment).
+# 🧪 Written from the docs; not run end to end for the course.
+name: deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: Commit to deploy (rollback). Empty = latest main.
+        required: false
+
+permissions:
+  contents: read
+  id-token: write
+
+# Never run two deployments at once, and never cancel one halfway.
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+jobs:
+  changes:
+    runs-on: ubuntu-latest
+    outputs:
+      infra: ${{ steps.diff.outputs.infra }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+          fetch-depth: 2
+      - id: diff
+        run: |
+          if git diff --name-only HEAD~1 HEAD | grep -q '^infra/'; then echo "infra=true" >> "$GITHUB_OUTPUT"; else echo "infra=false" >> "$GITHUB_OUTPUT"; fi
+
+  infra:
+    needs: changes
+    if: needs.changes.outputs.infra == 'true'
+    runs-on: ubuntu-latest
+    environment: production-infra   # required reviewer: you
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_DEPLOY_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - run: |
+          az deployment group create \
+            --resource-group "${{ vars.AZURE_RESOURCE_GROUP }}" \
+            --template-file infra/main.bicep \
+            --parameters infra/main.bicepparam
+
+  api:
+    needs: [changes, infra]
+    if: always() && !failure() && !cancelled()
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+      - uses: actions/setup-dotnet@v5
+        with:
+          global-json-file: api/global.json
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_DEPLOY_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Build and push the container image (no Dockerfile)
+        run: |
+          az acr login --name "${{ vars.ACR_NAME }}"
+          dotnet publish api/src/BusyHamster.Api -c Release /t:PublishContainer \
+            -p ContainerRegistry="${{ vars.ACR_NAME }}.azurecr.io" \
+            -p ContainerRepository=busyhamster-api \
+            -p ContainerImageTag="${{ github.sha }}"
+      - name: Apply database migrations (expand only)
+        run: |
+          dotnet tool restore --tool-manifest api/.config/dotnet-tools.json
+          dotnet ef migrations bundle --project api/src/BusyHamster.Api -o efbundle --self-contained -r linux-x64
+          ./efbundle --connection "${{ vars.SQL_CONNECTION_STRING_ENTRA }}"
+      - name: New revision
+        run: |
+          az containerapp update \
+            --name busyhamster-api \
+            --resource-group "${{ vars.AZURE_RESOURCE_GROUP }}" \
+            --image "${{ vars.ACR_NAME }}.azurecr.io/busyhamster-api:${{ github.sha }}"
+
+  web:
+    needs: [api]
+    if: always() && !failure() && !cancelled()
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: web/.nvmrc
+          cache: npm
+          cache-dependency-path: web/package-lock.json
+      - run: npm ci && npm run build
+        working-directory: web
+      - uses: Azure/static-web-apps-deploy@v1
+        with:
+          azure_static_web_apps_api_token: ${{ secrets.SWA_DEPLOYMENT_TOKEN }}
+          action: upload
+          app_location: web/build/client
+          skip_app_build: true
+      - name: Smoke test production
+        working-directory: web
+        env:
+          BASE_URL: https://busyhamster.app
+        run: |
+          npx playwright install --with-deps chromium
+          npm run test:smoke

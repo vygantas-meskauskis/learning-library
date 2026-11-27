@@ -1,0 +1,76 @@
+# GitHub issue form for a feature. Becomes one PR (or a parent issue with
+# vertical-slice children). See chapter 5 of the course.
+name: Feature
+description: Something BusyHamster should do. Becomes one PR.
+labels: [needs-spec]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        One issue, one PR. If it won't fit about 10 files, the spec writer will
+        propose vertical slices instead.
+  - type: input
+    id: one-line
+    attributes:
+      label: In one line
+      description: What is this, in a sentence a user would understand?
+      placeholder: Download your finished tasks as a CSV file
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What's wrong today, for whom? What happens if we do nothing?
+    validations:
+      required: true
+  - type: textarea
+    id: goals
+    attributes:
+      label: Goals
+      description: What must be true when it's done? Numbered, 2 to 5.
+    validations:
+      required: true
+  - type: textarea
+    id: non-goals
+    attributes:
+      label: Non-goals
+      description: What is deliberately out of scope?
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria (Given / When / Then)
+      description: Each one checkable by a test or a five-second look. Use concrete values.
+      placeholder: |
+        1. Given two finished tasks, when I choose "Export as CSV", then a file named
+           busyhamster-history-YYYY-MM-DD.csv downloads with one row per line.
+    validations:
+      required: true
+  - type: checkboxes
+    id: principles
+    attributes:
+      label: Product principles touched (PRODUCT.md)
+      options:
+        - label: "1. The return matters more than the stop"
+        - label: "2. One line, one key"
+        - label: "3. Your data stays yours"
+        - label: "4. Stay out of the way of the work"
+        - label: "5. Keyboard first"
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risk notes
+      description: Data, storage formats, privacy, auth, money, infrastructure. Leave empty if none.
+  - type: checkboxes
+    id: ready
+    attributes:
+      label: Definition of ready (tick before adding agent:go)
+      options:
+        - label: Every goal has at least one Given/When/Then criterion
+        - label: Non-goals listed
+        - label: Principles touched, and how they're respected
+        - label: No open questions
+        - label: Fits one PR (about 10 files)
+        - label: An approved plan is in a comment

@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json.schemastore.org/staticwebapp.config.json",
+  "trailingSlash": "never",
+  "navigationFallback": {
+    "rewrite": "/__spa-fallback.html",
+    "exclude": [
+      "/api/*",
+      "/assets/*",
+      "/fonts/*",
+      "/og/*",
+      "*.{js,css,png,svg,webp,ico,json,xml,txt,webmanifest,woff2}"
+    ]
+  },
+  "routes": [
+    {
+      "route": "/sw.js",
+      "headers": { "Cache-Control": "no-cache, no-store, must-revalidate", "Content-Type": "application/javascript; charset=utf-8" }
+    },
+    {
+      "route": "/assets/*",
+      "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
+    },
+    {
+      "route": "/fonts/*",
+      "headers": { "Cache-Control": "public, max-age=31536000, immutable" }
+    }
+  ],
+  "globalHeaders": {
+    "X-Content-Type-Options": "nosniff",
+    "X-Frame-Options": "DENY",
+    "Referrer-Policy": "strict-origin-when-cross-origin"
+  },
+  "responseOverrides": {
+    "404": { "rewrite": "/__spa-fallback.html" }
+  }
+}
