@@ -1,0 +1,57 @@
+# Independent review (chapter 8). A separate workflow, triggered by the PR,
+# read-only tools, spec + plan + diff only, structured JSON verdict.
+# The "review" job is a required status check: a "block" verdict fails it.
+name: review
+
+on:
+  pull_request:
+    types: [opened, synchronize, ready_for_review]
+
+permissions:
+  contents: read
+  pull-requests: write
+  issues: read
+
+concurrency:
+  group: review-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  review:
+    # Same-repo PRs only: PRs from forks never get the model token.
+    if: github.event.pull_request.head.repo.full_name == github.repository && !github.event.pull_request.draft
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - name: Collect spec, plan and diff
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./scripts/review-inputs.sh "${{ github.event.pull_request.number }}"
+      - name: Review
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: |
+          npm install -g @anthropic-ai/claude-code
+          claude -p "Use the reviewer subagent on SPEC.md, PLAN.md and DIFF.patch." \
+            --permission-mode dontAsk \
+            --allowedTools "Read,Grep,Glob" \
+            --max-turns 25 \
+            --max-budget-usd 1.00 \
+            --output-format json \
+            --json-schema "$(cat .claude/review-verdict.schema.json)" \
+            > review.json
+      - uses: actions/upload-artifact@v5
+        if: always()
+        with:
+          name: agent-run-review-${{ github.event.pull_request.number }}-${{ github.run_attempt }}
+          path: review.json
+      - name: Post and decide
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: ./scripts/review-post.sh "${{ github.event.pull_request.number }}" review.json

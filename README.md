@@ -5,6 +5,7 @@
 | Course | Audience | Material |
 |---|---|---|
 | [Cloud-Native .NET](courses/cloud-native-dotnet/) | Experienced .NET developers | 21 chapters, Ledgerly .NET sample, infrastructure, toolkit |
+| [Building Your Agentic Software Factory](courses/agentic-software-factory/) | Developers already using AI coding agents | 13 chapters, BusyHamster sample snapshot, agent and CI toolkit |
 | [Becoming an AI-Native Designer](courses/becoming-ai-native-designer/) | Mid-to-senior UX/UI designers | 16 chapters, glossary, prompts and toolkit |
 | [AI-Native Design Lead](courses/ai-native-design-lead-course/) | Designers moving into leadership | 14 modules, team templates, capstone and 90-day plan |
 

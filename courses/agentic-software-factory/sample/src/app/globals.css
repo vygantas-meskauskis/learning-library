@@ -1,0 +1,205 @@
+@import "tailwindcss";
+
+/*
+  Design tokens (Option C, "the hamster at work", on the hamster redesign canvas).
+  Dark is the default; [data-theme="light"] on <html> switches to light.
+  Components use semantic Tailwind classes like bg-ground, text-muted, bg-lamp,
+  so the theme swap is just these variables changing.
+  The same blocks also apply to any element with data-theme, so a page can show
+  both themes at once (the /design-system page does).
+  - lamp: the sunflower-yellow fill (progress, dots, the Resume and Done buttons).
+  - lamp-ink: the same accent as text; yellow text fails contrast on light, so it's ink there.
+  - prop / prop-soft: the hamster scene's objects (wheel, laptop, nest).
+*/
+:root,
+[data-theme="dark"] {
+  --ground: #121417;
+  --surface: #1c1f23;
+  --well: #121417;
+  --line: #2a2e34;
+  --line-soft: #23272c;
+  --fg: #eceef0;
+  --muted: #a3a9b1;
+  --faint: #858b93;
+  --lamp: #f2c230;
+  --lamp-fg: #15171a;
+  --lamp-ink: #f2c230;
+  --prop: #6e747c;
+  --prop-soft: #4a5058;
+  --shadow: 0 24px 60px rgb(0 0 0 / 0.4);
+  color-scheme: dark;
+}
+
+:root[data-theme="light"],
+[data-theme="light"] {
+  --ground: #f6f7f8;
+  --surface: #ffffff;
+  --well: #f6f7f8;
+  --line: #e2e4e7;
+  --line-soft: #e3e5e8;
+  --fg: #15171a;
+  --muted: #5a6068;
+  --faint: #6e747c;
+  --lamp: #f2c230;
+  --lamp-fg: #15171a;
+  --lamp-ink: #15171a;
+  --prop: #9ea3aa;
+  --prop-soft: #c6cacf;
+  --shadow: 0 1px 2px rgb(21 23 26 / 0.06), 0 8px 24px rgb(21 23 26 / 0.06);
+  color-scheme: light;
+}
+
+@theme inline {
+  --color-ground: var(--ground);
+  --color-surface: var(--surface);
+  --color-well: var(--well);
+  --color-line: var(--line);
+  --color-line-soft: var(--line-soft);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-lamp: var(--lamp);
+  --color-lamp-fg: var(--lamp-fg);
+  --color-lamp-ink: var(--lamp-ink);
+  --color-prop: var(--prop);
+  --color-prop-soft: var(--prop-soft);
+  --shadow-card: var(--shadow);
+  --font-sans: var(--font-schibsted);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--ground);
+  color: var(--fg);
+}
+
+/* Text selection from the palette, not the browser's blue. */
+::selection {
+  background: color-mix(in srgb, var(--lamp) 40%, transparent);
+  color: var(--fg);
+}
+
+/* The one animation in the product: the resume card arriving. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animate-rise-in {
+    animation: rise-in 240ms ease-out both;
+  }
+}
+
+/*
+  First-visit intro on "/" (see first-visit-intro.tsx). New visitors see the text;
+  returning ones (html[data-returning], set before paint) don't see it at all.
+*/
+[data-returning] .first-visit {
+  display: none;
+}
+
+/* Blog post body (HTML from Markdown). Plain element styles, scoped to .post-body. */
+.post-body {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.75;
+}
+.post-body > * + * {
+  margin-top: 1.25em;
+}
+.post-body h2,
+.post-body h3,
+.post-body h4 {
+  color: var(--fg);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+  margin-top: 2em;
+}
+.post-body h2 {
+  font-size: 1.4em;
+}
+.post-body h3 {
+  font-size: 1.15em;
+}
+.post-body strong,
+.post-body b {
+  color: var(--fg);
+  font-weight: 600;
+}
+.post-body a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+}
+.post-body a:hover {
+  text-decoration-color: var(--fg);
+}
+.post-body ul,
+.post-body ol {
+  padding-left: 1.4em;
+}
+.post-body ul {
+  list-style: disc;
+}
+.post-body ol {
+  list-style: decimal;
+}
+.post-body li + li {
+  margin-top: 0.4em;
+}
+.post-body blockquote {
+  border-left: 2px solid var(--line);
+  padding-left: 1em;
+  color: var(--fg);
+}
+.post-body code {
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.88em;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  padding: 0.1em 0.35em;
+}
+.post-body pre {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  padding: 1em 1.2em;
+}
+.post-body pre code {
+  border: 0;
+  padding: 0;
+  background: none;
+}
+.post-body img {
+  border-radius: 12px;
+  border: 1px solid var(--line-soft);
+}
+.post-body hr {
+  border: 0;
+  border-top: 1px solid var(--line-soft);
+}
+.post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.92em;
+}
+.post-body th,
+.post-body td {
+  border-bottom: 1px solid var(--line-soft);
+  padding: 0.5em 0.6em;
+  text-align: left;
+}
+.post-body th {
+  color: var(--fg);
+}

@@ -1,0 +1,59 @@
+# Infrastructure preview on PRs (chapter 9). Uses a READ-ONLY Azure identity:
+# the federated credential for this job trusts pull_request events, so anyone
+# who can open a PR can trigger it.
+# 🧪 Written from the docs; not run end to end for the course.
+name: infra-whatif
+
+on:
+  pull_request:
+    paths: ["infra/**"]
+
+permissions:
+  contents: read
+  id-token: write
+  pull-requests: write
+
+jobs:
+  whatif:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: azure/login@v2
+        with:
+          client-id: ${{ vars.AZURE_READER_CLIENT_ID }}
+          tenant-id: ${{ vars.AZURE_TENANT_ID }}
+          subscription-id: ${{ vars.AZURE_SUBSCRIPTION_ID }}
+      - name: Lint and build Bicep
+        run: |
+          az bicep lint --file infra/main.bicep
+          az bicep build --file infra/main.bicep --stdout > /dev/null
+      - name: What-if
+        run: |
+          az deployment group what-if \
+            --resource-group "${{ vars.AZURE_RESOURCE_GROUP }}" \
+            --template-file infra/main.bicep \
+            --parameters infra/main.bicepparam \
+            --result-format ResourceIdOnly \
+            --no-pretty-print > whatif.json
+          az deployment group what-if \
+            --resource-group "${{ vars.AZURE_RESOURCE_GROUP }}" \
+            --template-file infra/main.bicep \
+            --parameters infra/main.bicepparam > whatif.txt
+      - name: Comment, and fail on deletes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          {
+            echo "### Infrastructure what-if"
+            echo '```text'
+            sed 's/\x1b\[[0-9;]*m//g' whatif.txt | tail -n 120
+            echo '```'
+          } > comment.md
+          gh pr comment "${{ github.event.pull_request.number }}" --body-file comment.md
+          deletes=$(jq '[.changes[] | select(.changeType=="Delete")] | length' whatif.json)
+          if [ "$deletes" -gt 0 ]; then
+            echo "::error::This change deletes $deletes Azure resource(s). A human must review and deploy it deliberately."
+            exit 1
+          fi
